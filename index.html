@@ -1,51 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuida&Acalmar</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuida & Acalmar</title>
 
-    <!-- Manifest -->
-    <link rel="manifest" href="manifest.json">
+  <!-- Conexão com o Manifest -->
+  <link rel="manifest" href="manifest.json">
 
-    <!-- Ícones -->
-    <link rel="icon" type="image/png" sizes="192x192" href="IMG/ico-192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="IMG/ico-512.png">
-
-    <!-- Estilo temporário -->
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            padding: 40px;
-            background: #f3f8ff;
-        }
-        h1 {
-            color: #4C8BF5;
-        }
-        p {
-            font-size: 18px;
-            color: #444;
-        }
-        .btn {
-            padding: 15px 25px;
-            background: #4C8BF5;
-            color: white;
-            border-radius: 10px;
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            font-size: 20px;
-        }
-    </style>
-
+  <!-- Conexão com o CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  
+  <header>
+    Cuida & Acalmar
+  </header>
 
-    <h1>Cuida & Acalmar</h1>
-    <p>Bem-vindo ao app voltado para ajudar crianças com TEA e TDAH.</p>
+  <div class="container">
+    <button class="button" onclick="openActivity('Atividades para Autismo')">
+      Atividades para Autismo
+    </button>
 
-    <a class="btn" href="#">Entrar</a>
+    <button class="button" onclick="openActivity('Atividades para TDAH')">
+      Atividades para TDAH
+    </button>
+
+    <button class="button" onclick="startApp()">
+      Mensagem de Boas-Vindas
+    </button>
+  </div>
+
+  <!-- Conexão com o JavaScript -->
+  <script src="app.js"></script>
+
+  <!-- Registro do Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker registrado"))
+      .catch((error) => console.log("Erro:", error));
+    }
+  </script>
 
 </body>
 </html>
