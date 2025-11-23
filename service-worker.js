@@ -1,39 +1,40 @@
-const CACHE_NAME = "cuida-e-acalmar-v1";
-const ASSETS = [
+const CACHE_NAME = "cuida-acalmar-v1";
+const urlsToCache = [
   "/",
   "/index.html",
-  "/manifest.json",
-  "/icon-192.png",
-  "/icon-512.png",
-  "/styles.css"
+  "/style.css",
+  "/app.js",
+  "/IMG/icon-192.png",
+  "/IMG/icon-512.png",
+  "/manifest.json"
 ];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(urlsToCache);
+    })
   );
   self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
-        })
-      )
-    )
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames
+          .filter((name) => name !== CACHE_NAME)
+          .map((name) => caches.delete(name))
+      );
+    })
   );
   self.clients.claim();
 });
 
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((cacheRes) => {
-      return cacheRes || fetch(event.request);
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
     })
   );
 });
