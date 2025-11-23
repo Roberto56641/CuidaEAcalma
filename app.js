@@ -1,9 +1,12 @@
-// Função de boas-vindas
-function startApp() {
-  alert("Bem-vindo ao Cuida & Acalmar!");
+// Função de teste para confirmar que o app está funcionando
+function iniciarApp() {
+  alert("O app Cuida & Acalmar está funcionando!");
 }
 
-// Função para abrir atividades (ainda vamos melhorar)
-function openActivity(activityName) {
-  alert("Abrindo: " + activityName);
-}
+// Associa a função ao botão (quando existe)
+document.addEventListener("DOMContentLoaded", () => {
+  const botao = document.getElementById("btnIniciar");
+  if (botao) {
+    botao.addEventListener("click", iniciarApp);
+  }
+});
