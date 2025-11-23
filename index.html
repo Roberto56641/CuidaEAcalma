@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cuida & Acalmar</title>
+    <title>Meu App</title>
+
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Ícone -->
+    <link rel="icon" type="image/png" href="img/icon-192.png" />
+
+    <!-- Cor da barra superior -->
+    <meta name="theme-color" content="#ffffff" />
 </head>
+
 <body>
-    <h1>Bem-vindo ao Cuida & Acalmar</h1>
-    <p>Seu app de apoio para crianças com TEA e TDAH.</p>
+    <h1>Meu Aplicativo está funcionando!</h1>
+    <p>Esse é o começo do seu PWA.</p>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("service-worker.js");
+        }
+    </script>
 </body>
 </html>
