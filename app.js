@@ -1,66 +1,57 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Alert, ScrollView } from 'react-native';
+import React from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 export default function App() {
-  const [calmLevel, setCalmLevel] = useState(0);
-
-  const relax = () => {
-    setCalmLevel(calmLevel + 1);
-    Alert.alert('Respire fundo!', Seu nível de calma agora é: ${calmLevel + 1});
-  };
-
-  const reset = () => {
-    setCalmLevel(0);
-    Alert.alert('Reiniciado', 'Seu nível de calma voltou a 0');
-  };
-
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Cuida & Acalmar</Text>
-      <Text style={styles.subtitle}>Nível de calma: {calmLevel}</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Cuida & Acalma</Text>
+      <Text style={styles.subtitle}>Escolha uma opção para começar:</Text>
 
-      <View style={styles.buttonContainer}>
-        <Button title="Respire e relaxe" onPress={relax} color="#4CAF50" />
-      </View>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>💆 Exercícios de Relaxamento</Text>
+      </TouchableOpacity>
 
-      <View style={styles.buttonContainer}>
-        <Button title="Reiniciar" onPress={reset} color="#F44336" />
-      </View>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>🧘 Meditação Guiada</Text>
+      </TouchableOpacity>
 
-      <Text style={styles.info}>
-        Use este app para praticar exercícios de respiração e meditação.
-      </Text>
-    </ScrollView>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>🎵 Sons Calmantes</Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    backgroundColor: '#E0F7FA',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
+    backgroundColor: "#E3F2FD",
+    justifyContent: "center",
+    alignItems: "center",
     padding: 20,
   },
   title: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#0D47A1",
     marginBottom: 10,
-    color: '#00796B',
   },
   subtitle: {
-    fontSize: 20,
-    marginBottom: 20,
-    color: '#004D40',
+    fontSize: 18,
+    color: "#1565C0",
+    marginBottom: 30,
+    textAlign: "center",
   },
-  buttonContainer: {
-    marginVertical: 10,
-    width: '80%',
+  button: {
+    width: "90%",
+    backgroundColor: "#1565C0",
+    padding: 15,
+    borderRadius: 10,
+    marginTop: 15,
   },
-  info: {
-    marginTop: 30,
-    fontSize: 16,
-    textAlign: 'center',
-    color: '#006064',
+  buttonText: {
+    color: "#FFF",
+    fontSize: 18,
+    textAlign: "center",
   },
 });
