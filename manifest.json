@@ -1,21 +1,20 @@
 {
   "name": "Cuida & Acalmar",
-  "short_name": "CuidaAcalmar",
+  "short_name": "CuidaAcalma",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#82CFFF",
   "theme_color": "#82CFFF",
   "icons": [
     {
-      "icons": [
-  {
-    "src": "img/icon-192.png",
-    "sizes": "192x192",
-    "type": "image/png"
-  },
-  {
-    "src": "img/icon-512.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }
-]
+      "src": "IMG/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "IMG/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
