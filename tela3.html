@@ -2,49 +2,28 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Cuida & Acalma – Tela 3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escolha o som</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #cce7ff, #ffffff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
+<body class="tela">
 
-    .container {
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      max-width: 320px;
-      width: 100%;
-    }
+  <h1>Como sua criança prefere relaxar?</h1>
+  <p>Escolha a opção que traz mais conforto 💙</p>
 
-    h1 {
-      color: #2b6cb0;
-      font-size: 22px;
-      margin-bottom: 15px;
-    }
+  <div class="opcoes">
+    <button onclick="escolher('musica')">🎵 Música suave</button>
+    <button onclick="escolher('natureza')">🌧️ Sons da natureza</button>
+    <button onclick="escolher('sem_som')">🔕 Sem som</button>
+  </div>
 
-    p {
-      color: #333;
-      font-size: 16px;
-      margin-bottom: 25px;
+  <script>
+    function escolher(tipo) {
+      localStorage.setItem("preferenciaSom", tipo);
+      window.location.href = "tela4.html";
     }
+  </script>
 
-    button {
-      background: #2b6cb0;
-      color: #fff;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      width: 100%;
-    }
+</body>
+</html>
